@@ -1,0 +1,91 @@
+//
+//  ViewController.m
+//  JiaXue
+//
+//  Created by xiang_jj on 15/11/24.
+//  Copyright (c) 2015年 xiang_jj  千锋. All rights reserved.
+//
+
+#import "RootViewController.h"
+#import "MySettingTableViewController.h"
+#import "CategoryTableViewController.h"
+#import "GoodsTableViewController.h"
+#import "ListTableViewController.h"
+#import "XJViewController.h"
+
+@interface RootViewController ()<UIScrollViewDelegate>
+{
+    BOOL isApear;
+}
+
+@end
+
+@implementation RootViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    
+    MySettingTableViewController *setVC = [[MySettingTableViewController alloc] init];
+    setVC.view.frame = CGRectMake(0, 0, screen_Width, screen_Height);
+    [self.view addSubview:setVC.view];
+    [self addChildViewController:setVC];
+
+    XJViewController *xjj = [[XJViewController alloc] init];
+    xjj.btnArray = @[@"分类",@"精品",@"排行"];
+    
+    NSArray *array = @[@"CategoryTableViewController",@"GoodsTableViewController",@"ListTableViewController"];
+    NSMutableArray *vcs = [NSMutableArray array];
+    for (int i = 0; i<3; i++) {
+        Class class = NSClassFromString(array[i]);
+        UIViewController *obj = [[class  alloc] init];
+        [vcs addObject:obj];
+    }
+    xjj.myViewControllers = [vcs copy];
+    xjj.number = 3;
+    xjj.view.frame = self.view.bounds;
+    [self.view addSubview:xjj.view];
+    [self addChildViewController:xjj];
+    
+}
+
+- (void)leftItem:(UIBarButtonItem *)item{
+    XJViewController *xj = self.childViewControllers[1];
+
+    if (isApear == NO) {
+        
+        isApear = YES;
+        [UIView animateWithDuration:1 animations:^{
+            CGRect frame = xj.view.frame;
+            frame.origin.x = screen_Width;
+            xj.view.frame = frame;
+            
+        }];
+    }else{
+    
+        [UIView animateWithDuration:1 animations:^{
+            xj.view.frame = self.view.bounds;
+        }];
+        
+        isApear = NO;
+    }
+    
+}
+
+
+@end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
