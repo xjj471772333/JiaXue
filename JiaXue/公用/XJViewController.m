@@ -31,6 +31,8 @@
 -(void)creatNavButton{
     
     self.btnScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, 45)];
+    self.btnScrollView.showsHorizontalScrollIndicator = NO;
+    self.btnScrollView.showsVerticalScrollIndicator = NO;
     self.btnScrollView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.btnScrollView];
     

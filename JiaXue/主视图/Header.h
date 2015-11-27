@@ -37,6 +37,8 @@
 #define nav_Height 64.0f
 #define tabBar_Height 40.0f
 
+
+
 #define URL_CATEGORY  @"http://course.jaxus.cn/api/category/subcategories?allSubcategories=%ld"
 #define URL_CATEGORY_DETAIL @"http://course.jaxus.cn/api/category/%@/courses?channel=appstore&end=20&freeCourse=0&platform=2&start=0"
 #define URL_CATEGORY_DETAIL_BOFANG @"http://course.jaxus.cn/api/course/%@?channel=appstore&platform=2"

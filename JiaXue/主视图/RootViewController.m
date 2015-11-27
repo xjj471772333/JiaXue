@@ -22,11 +22,17 @@
 
 @implementation RootViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //在沙盒建一个文件夹，用于等待存储所有的视频资源
+    NSFileManager *fm  = [NSFileManager defaultManager];
+    [fm createDirectoryAtPath:[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Movie"] withIntermediateDirectories:YES attributes:nil error:nil];
     
-    MySettingTableViewController *setVC = [[MySettingTableViewController alloc] init];
+    
+    MySettingTableViewController  *setVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MySetVC"];
     setVC.view.frame = CGRectMake(0, 0, screen_Width, screen_Height);
     [self.view addSubview:setVC.view];
     [self addChildViewController:setVC];

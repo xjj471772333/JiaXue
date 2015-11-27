@@ -1,10 +1,10 @@
 //
-//  BoFangViewController.m
-//  J_APP
+//  MyDownloadTableViewController.m
+//  JiaXue
 //
-//  Created by 孙密 on 15/11/4.
-//  Copyright (c) 2015年 孙密. All rights reserved.
-//
+//  Created by xiang_jj on 15/11/26.
+//  Copyright (c) 2015年 xiang_jj  千锋. All rights reserved.
+
 
 #import <MediaPlayer/MediaPlayer.h>
 #import "BoFangViewController.h"
@@ -16,8 +16,9 @@
 #import "UIButton+WebCache.h"
 #import "BoFangModel.h"
 #import "WaiBoModel.h"
-
-
+#import "DownloadList.h"
+#import "MySessionDownloadStopAndResume.h"
+#import "XJFMDBManager.h"
 
 
 @interface BoFangViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -49,7 +50,7 @@ BoFangModel *_mModel;
 @implementation BoFangViewController
 
 - (void)viewWillAppear:(BOOL)animated{
-[super viewWillAppear:animated];
+    [super viewWillAppear:animated];
 
 //    [[NSNotificationCenter defaultCenter]postNotificationName:@"hiddenTabBar" object:nil];
 }
@@ -58,8 +59,18 @@ BoFangModel *_mModel;
 
 -(void)viewWillDisappear:(BOOL)animated{
 
+    [super viewWillDisappear:animated];
 //    [[NSNotificationCenter defaultCenter] postNotificationName:@"showTabBar" object:nil];
+    
+    if (_moviePlayer) {
+        [_moviePlayer stop];
+        _moviePlayer = nil;
+    }
+    
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -87,16 +98,17 @@ BoFangModel *_mModel;
 - (void)loadData{
     NSLog(@"%@",[NSString stringWithFormat:URL_CATEGORY_DETAIL_BOFANG,self.detailModel.myID]);
     
-    __block BoFangViewController *mySelf = self;
+    __weak  BoFangViewController *mySelf = self;
     self.request = [[MyAFNetWorkingRequest  alloc] initWithRequest:[NSString stringWithFormat:URL_CATEGORY_DETAIL_BOFANG,self.detailModel.myID] andBlock:^(NSData *requestData) {
         
-        self.waiBoModel =  [WaiBoModel  waiboModelWithRequestData:requestData];
+        mySelf.waiBoModel =  [WaiBoModel  waiboModelWithRequestData:requestData];
         
         [_indexTableView  reloadData];
         
         [mySelf loadDataMovieURL];
 
     }];
+    
 }
 
 
@@ -160,9 +172,27 @@ BoFangModel *_mModel;
         
         
         
+    }else{
+        //先判断是否有下载资源，如果没有下载资源
+        if (self.waiBoModel.singleVideoId==nil&&self.waiBoModel.videoId == nil) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"注意" message:@"暂无视频资源" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+            [alert show];
+            return;
+
+        }else{
+        //如果有下载资源
+        //先去沙盒查看是否已经下载过
+        NSFileManager *fm = [NSFileManager defaultManager];
+        NSArray *array = [fm contentsOfDirectoryAtPath:[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Movie"] error:nil];
+        for (NSString *fileName in array) {
+            if ([fileName isEqualToString:[NSString stringWithFormat:@"%@.mp4",self.waiBoModel.title]]) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"注意" message:@"您已经下载了该视频" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                [alert show];
+                return;
+                }
+            }
         
-        
-    }else{//下载按钮被点击
+        }
     
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
         UIAlertAction *sureAction  = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
@@ -176,10 +206,15 @@ BoFangModel *_mModel;
                     self.playLabel.alpha =0;
                 }];
             }];
+            DownloadList *downloadList = [DownloadList shareDownloadList];
+            //把当前视频加入到下载列表
+            [downloadList.downloadArray addObject:self.waiBoModel];
             
+            //通知下载类开始下载
+            MySessionDownloadStopAndResume *downLoadFile = [[MySessionDownloadStopAndResume alloc] initWithMySessionDownloadFile:self.boFangModel.quality_20];
             
-            
-            
+            downLoadFile.waibuModel = self.waiBoModel;
+            [downloadList.downloadfileRequest addObject:downLoadFile];
             
         }];
         
@@ -223,8 +258,9 @@ BoFangModel *_mModel;
     if (self.waiBoModel.singleVideoId==nil&&self.waiBoModel.videoId == nil) {
         
         [UIView animateWithDuration:2 animations:^{
+            
             self.playLabel.text =@"暂无视频数据";
-            self.playLabel.alpha =0;
+            self.playLabel.alpha =1;
         }];
     }
 
@@ -319,8 +355,11 @@ BoFangModel *_mModel;
 
 - (void)dealloc{
 
-    [_moviePlayer stop];
-    _moviePlayer = nil;
+    if (_moviePlayer) {
+        [_moviePlayer stop];
+        _moviePlayer = nil;
+    }
+
 
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
