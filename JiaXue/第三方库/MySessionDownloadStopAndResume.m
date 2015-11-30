@@ -96,7 +96,7 @@
     double progress = totalBytesWritten*1.0/totalBytesExpectedToWrite;
     //2.回到主线程，更新进度条的显示
     dispatch_async(dispatch_get_main_queue(), ^{
-        if ([self.delegate respondsToSelector:@selector(currentDownloadProgress:andDownload:)]||self.delegate) {
+            if ([self.delegate respondsToSelector:@selector(currentDownloadProgress:andDownload:)]||self.delegate) {
             [self.delegate currentDownloadProgress:progress andDownload:self];
         }
     });

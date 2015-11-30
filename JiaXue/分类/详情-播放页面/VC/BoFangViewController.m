@@ -121,7 +121,10 @@
     }else if (self.waiBoModel.singleVideoId){
         urlStr = [NSString stringWithFormat:URL_BOFANG,self.waiBoModel.singleVideoId];
 
+    }else{
+        urlStr = [NSString stringWithFormat:URL_BOFANG,self.waiBoModel.videoId];
     }
+    
     self.request = [[MyAFNetWorkingRequest alloc] initWithRequest:urlStr andBlock:^(NSData *requestData) {
         
         self.boFangModel = [BoFangModel  boFangModelWithRequestData:requestData];
@@ -288,14 +291,14 @@
             _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL fileURLWithPath:[NSHomeDirectory() stringByAppendingFormat:@"/Documents/Movie/%@.mp4",self.waiBoModel.title]]];
         }
         else{
-            _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:self.boFangModel.quality_10]];
+            _moviePlayer = [[MPMoviePlayerController alloc]init];
+            [_moviePlayer setContentURL:[NSURL URLWithString:self.boFangModel.quality_10]];
         }
         _moviePlayer.view.frame = CGRectMake(0, 0, screen_Width, (screen_Height-64)*0.4);
         _moviePlayer.repeatMode = MPMovieRepeatModeNone;
         _moviePlayer.shouldAutoplay = NO;
         [_moviePlayer play];
         [self.view addSubview:_moviePlayer.view];
-        b.hidden = YES;
     }
 }
 
