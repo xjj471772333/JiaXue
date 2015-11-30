@@ -9,12 +9,10 @@
 #import "CategoryDetailTableViewController.h"
 #import "CategoryDetailTableViewCell.h"
 #import "BoFangViewController.h"
-#import "MyAFNetWorkingRequest.h"
 #import "Header.h"
 
 @interface CategoryDetailTableViewController ()
 
-@property(nonatomic,strong)MyAFNetWorkingRequest *request;
 @property(nonatomic,strong)NSArray *dataArray;
 @end
 
@@ -30,7 +28,7 @@
 
 -(void)loadRequestData{
     
-    self.request = [[MyAFNetWorkingRequest alloc] initWithRequest:[NSString stringWithFormat:URL_CATEGORY_DETAIL,self.listModel.myID] andBlock:^(NSData *requestData) {
+    self.request = [[MyAFNetWorkingRequest alloc] initWithRequest:self.urlStr andBlock:^(NSData *requestData) {
        
        self.dataArray = [CategoryModelManager  arrayWithRequestDataForCategoryDetailModel:requestData];
         

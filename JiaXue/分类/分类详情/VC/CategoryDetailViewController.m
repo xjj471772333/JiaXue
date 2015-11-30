@@ -27,7 +27,7 @@
         
         CategoryListModel *listModel = self.model.subcategories[i];
         CategoryDetailTableViewController *cvc = [[CategoryDetailTableViewController alloc] init];
-        cvc.listModel = listModel;
+        cvc.urlStr = [NSString stringWithFormat:URL_CATEGORY_DETAIL,listModel.myID];
         [vcs addObject:cvc];
         [mArr addObject:listModel.name];
     }

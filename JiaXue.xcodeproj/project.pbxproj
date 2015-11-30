@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C42050CD1C0BEBEF00409EA6 /* BannersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C42050CC1C0BEBEF00409EA6 /* BannersModel.m */; };
+		C42050D01C0BEC6B00409EA6 /* GoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C42050CF1C0BEC6B00409EA6 /* GoodsModel.m */; };
+		C42050D31C0BEECA00409EA6 /* GoodModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C42050D21C0BEECA00409EA6 /* GoodModelManager.m */; };
+		C42050D61C0BF13200409EA6 /* GoodsSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C42050D51C0BF13100409EA6 /* GoodsSectionModel.m */; };
+		C42050D91C0BFA1700409EA6 /* GoodHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C42050D81C0BFA1700409EA6 /* GoodHeaderView.m */; };
+		C42050DC1C0C28B900409EA6 /* ListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C42050DB1C0C28B900409EA6 /* ListModel.m */; };
+		C42050DF1C0C363D00409EA6 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42050DE1C0C363D00409EA6 /* BaseTableViewController.m */; };
 		C43BB3B61C0445B500FC84BF /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C43BB36E1C0445B500FC84BF /* AFHTTPRequestOperation.m */; };
 		C43BB3B71C0445B500FC84BF /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C43BB3701C0445B500FC84BF /* AFHTTPRequestOperationManager.m */; };
 		C43BB3B81C0445B500FC84BF /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C43BB3721C0445B500FC84BF /* AFHTTPSessionManager.m */; };
@@ -117,6 +124,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C42050CB1C0BEBEF00409EA6 /* BannersModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannersModel.h; sourceTree = "<group>"; };
+		C42050CC1C0BEBEF00409EA6 /* BannersModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannersModel.m; sourceTree = "<group>"; };
+		C42050CE1C0BEC6B00409EA6 /* GoodsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsModel.h; sourceTree = "<group>"; };
+		C42050CF1C0BEC6B00409EA6 /* GoodsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsModel.m; sourceTree = "<group>"; };
+		C42050D11C0BEECA00409EA6 /* GoodModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodModelManager.h; sourceTree = "<group>"; };
+		C42050D21C0BEECA00409EA6 /* GoodModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodModelManager.m; sourceTree = "<group>"; };
+		C42050D41C0BF13100409EA6 /* GoodsSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsSectionModel.h; sourceTree = "<group>"; };
+		C42050D51C0BF13100409EA6 /* GoodsSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsSectionModel.m; sourceTree = "<group>"; };
+		C42050D71C0BFA1700409EA6 /* GoodHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodHeaderView.h; sourceTree = "<group>"; };
+		C42050D81C0BFA1700409EA6 /* GoodHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodHeaderView.m; sourceTree = "<group>"; };
+		C42050DA1C0C28B900409EA6 /* ListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListModel.h; sourceTree = "<group>"; };
+		C42050DB1C0C28B900409EA6 /* ListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListModel.m; sourceTree = "<group>"; };
+		C42050DD1C0C363D00409EA6 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		C42050DE1C0C363D00409EA6 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		C43BB36D1C0445B500FC84BF /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		C43BB36E1C0445B500FC84BF /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		C43BB36F1C0445B500FC84BF /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -439,6 +460,8 @@
 				C43BB3FD1C054B6900FC84BF /* XJViewController.m */,
 				C48978E81C083A2D00FE0145 /* XJFMDBManager.h */,
 				C48978E91C083A2D00FE0145 /* XJFMDBManager.m */,
+				C42050DD1C0C363D00409EA6 /* BaseTableViewController.h */,
+				C42050DE1C0C363D00409EA6 /* BaseTableViewController.m */,
 			);
 			path = "公用";
 			sourceTree = "<group>";
@@ -701,6 +724,8 @@
 		C43E6E191C041564004EDE82 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C42050DA1C0C28B900409EA6 /* ListModel.h */,
+				C42050DB1C0C28B900409EA6 /* ListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -734,6 +759,14 @@
 		C43E6E1D1C041564004EDE82 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C42050CB1C0BEBEF00409EA6 /* BannersModel.h */,
+				C42050CC1C0BEBEF00409EA6 /* BannersModel.m */,
+				C42050CE1C0BEC6B00409EA6 /* GoodsModel.h */,
+				C42050CF1C0BEC6B00409EA6 /* GoodsModel.m */,
+				C42050D41C0BF13100409EA6 /* GoodsSectionModel.h */,
+				C42050D51C0BF13100409EA6 /* GoodsSectionModel.m */,
+				C42050D11C0BEECA00409EA6 /* GoodModelManager.h */,
+				C42050D21C0BEECA00409EA6 /* GoodModelManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -750,6 +783,8 @@
 		C43E6E1F1C041564004EDE82 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C42050D71C0BFA1700409EA6 /* GoodHeaderView.h */,
+				C42050D81C0BFA1700409EA6 /* GoodHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -964,12 +999,14 @@
 				C43BB4411C05C18A00FC84BF /* CategoryModelManager.m in Sources */,
 				C43BB3D51C0445B500FC84BF /* UIImageView+HighlightedWebCache.m in Sources */,
 				C43E6E3C1C04181F004EDE82 /* ListTableViewController.m in Sources */,
+				C42050D01C0BEC6B00409EA6 /* GoodsModel.m in Sources */,
 				C43BB44D1C05C18A00FC84BF /* BoFangModel.m in Sources */,
 				C43BB3BC1C0445B500FC84BF /* AFURLRequestSerialization.m in Sources */,
 				C43BB3CF1C0445B500FC84BF /* SDWebImageManager.m in Sources */,
 				C43BB4461C05C18A00FC84BF /* SectionHeaderView.m in Sources */,
 				C48978CF1C07F8F800FE0145 /* MySessionDownloadStopAndResume.m in Sources */,
 				C43BB4491C05C18A00FC84BF /* CategoryDetailViewController.m in Sources */,
+				C42050DF1C0C363D00409EA6 /* BaseTableViewController.m in Sources */,
 				C43BB4571C05C8C400FC84BF /* BoFang1TableViewCell.m in Sources */,
 				C43BB43E1C05C18A00FC84BF /* BaseModel.m in Sources */,
 				C48978EA1C083A2D00FE0145 /* XJFMDBManager.m in Sources */,
@@ -979,8 +1016,11 @@
 				C43BB4471C05C18A00FC84BF /* CategoryDetailModel.m in Sources */,
 				C43BB3C11C0445B500FC84BF /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				C48978CC1C07F32800FE0145 /* MyAFNetworkingDownloadFile.m in Sources */,
+				C42050D61C0BF13200409EA6 /* GoodsSectionModel.m in Sources */,
 				C43BB44C1C05C18A00FC84BF /* BoFangViewController.m in Sources */,
+				C42050CD1C0BEBEF00409EA6 /* BannersModel.m in Sources */,
 				C43BB3D21C0445B500FC84BF /* UIImage+GIF.m in Sources */,
+				C42050D91C0BFA1700409EA6 /* GoodHeaderView.m in Sources */,
 				C43BB3C01C0445B500FC84BF /* AFNetworkActivityIndicatorManager.m in Sources */,
 				C48978E51C0838A300FE0145 /* FMResultSet.m in Sources */,
 				C43BB3B61C0445B500FC84BF /* AFHTTPRequestOperation.m in Sources */,
@@ -999,11 +1039,13 @@
 				C43BB3CC1C0445B500FC84BF /* SDWebImageDecoder.m in Sources */,
 				C43BB3D41C0445B500FC84BF /* UIImage+WebP.m in Sources */,
 				C4FF676A1C06B88600234886 /* MySettingTableViewController.m in Sources */,
+				C42050D31C0BEECA00409EA6 /* GoodModelManager.m in Sources */,
 				C48978E21C0838A300FE0145 /* FMDatabaseAdditions.m in Sources */,
 				C43BB3CB1C0445B500FC84BF /* SDWebImageCompat.m in Sources */,
 				C43E6E131C0414CF004EDE82 /* BasicViewController.m in Sources */,
 				C43BB3C71C0445B500FC84BF /* UIWebView+AFNetworking.m in Sources */,
 				C43BB4481C05C18A00FC84BF /* CategoryDetailTableViewController.m in Sources */,
+				C42050DC1C0C28B900409EA6 /* ListModel.m in Sources */,
 				C43BB3CD1C0445B500FC84BF /* SDWebImageDownloader.m in Sources */,
 				C43BB3C81C0445B500FC84BF /* MKAnnotationView+WebCache.m in Sources */,
 				C43BB45B1C05C8C400FC84BF /* BoFangTableViewCell.m in Sources */,

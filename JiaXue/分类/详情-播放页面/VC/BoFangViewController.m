@@ -23,20 +23,20 @@
 
 @interface BoFangViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
-UIButton *_playButton;
+    UIButton *_playButton;
 
-NSMutableArray *_dataArray;
+    NSMutableArray *_dataArray;
 
-UITableView *_indexTableView;
+    UITableView *_indexTableView;
 
-NSMutableArray *_midArray;
+    NSMutableArray *_midArray;
 
-NSMutableArray *_moDataArray;
-//播放视频
-MPMoviePlayerController *_moviePlayer;
+    NSMutableArray *_moDataArray;
+    //播放视频
+    MPMoviePlayerController *_moviePlayer;
 
-//视频地址的模型
-BoFangModel *_mModel;
+    //视频地址的模型
+    BoFangModel *_mModel;
 }
 
 @property(nonatomic, strong)MyAFNetWorkingRequest *request;
@@ -89,7 +89,7 @@ BoFangModel *_mModel;
 }
 
 - (void)didReceiveMemoryWarning {
-[super didReceiveMemoryWarning];
+    [super didReceiveMemoryWarning];
 // Dispose of any resources that can be recreated.
 }
 
@@ -115,7 +115,14 @@ BoFangModel *_mModel;
 #pragma mark  - 请求视频的播放地址
 - (void)loadDataMovieURL{
 
-    self.request = [[MyAFNetWorkingRequest alloc] initWithRequest:[NSString stringWithFormat:URL_BOFANG,self.waiBoModel.videoId ] andBlock:^(NSData *requestData) {
+    NSString *urlStr = nil;
+    if (self.waiBoModel.videoId) {
+        urlStr = [NSString stringWithFormat:URL_BOFANG,self.waiBoModel.videoId];
+    }else if (self.waiBoModel.singleVideoId){
+        urlStr = [NSString stringWithFormat:URL_BOFANG,self.waiBoModel.singleVideoId];
+
+    }
+    self.request = [[MyAFNetWorkingRequest alloc] initWithRequest:urlStr andBlock:^(NSData *requestData) {
         
         self.boFangModel = [BoFangModel  boFangModelWithRequestData:requestData];
         
@@ -165,6 +172,21 @@ BoFangModel *_mModel;
     }
 
 }
+//判断是否下载了该视频
+-(BOOL)isDownloadMovie{
+    //如果有下载资源
+    //先去沙盒查看是否已经下载过
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSArray *array = [fm contentsOfDirectoryAtPath:[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Movie"] error:nil];
+    for (NSString *fileName in array) {
+        if ([fileName isEqualToString:[NSString stringWithFormat:@"%@.mp4",self.waiBoModel.title]]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+
 
 -(void)btnClick:(UIButton *)btn{
     //收藏按钮被点击
@@ -182,20 +204,15 @@ BoFangModel *_mModel;
         }else{
         //如果有下载资源
         //先去沙盒查看是否已经下载过
-        NSFileManager *fm = [NSFileManager defaultManager];
-        NSArray *array = [fm contentsOfDirectoryAtPath:[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/Movie"] error:nil];
-        for (NSString *fileName in array) {
-            if ([fileName isEqualToString:[NSString stringWithFormat:@"%@.mp4",self.waiBoModel.title]]) {
+            if ([self isDownloadMovie]) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"注意" message:@"您已经下载了该视频" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
                 [alert show];
                 return;
-                }
             }
-        
-        }
+            
     
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-        UIAlertAction *sureAction  = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+            UIAlertAction *sureAction  = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             
             [UIView animateWithDuration:1 animations:^{
                 self.playLabel.text =@"已添加至离线缓存表";
@@ -223,8 +240,8 @@ BoFangModel *_mModel;
         [alertVC addAction:sureAction];
         [self presentViewController:alertVC animated:YES completion:nil];
         
+        }
     }
-    
 }
 
 #pragma mark -创建tv
@@ -265,7 +282,14 @@ BoFangModel *_mModel;
     }
 
     else{
-        _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:self.boFangModel.quality_10]];
+        
+        if ([self isDownloadMovie]) {
+            //播放本地
+            _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL fileURLWithPath:[NSHomeDirectory() stringByAppendingFormat:@"/Documents/Movie/%@.mp4",self.waiBoModel.title]]];
+        }
+        else{
+            _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:self.boFangModel.quality_10]];
+        }
         _moviePlayer.view.frame = CGRectMake(0, 0, screen_Width, (screen_Height-64)*0.4);
         _moviePlayer.repeatMode = MPMovieRepeatModeNone;
         _moviePlayer.shouldAutoplay = NO;

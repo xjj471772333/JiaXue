@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "CategoryModelManager.h"
+#import "MyAFNetWorkingRequest.h"
 
 @interface CategoryDetailTableViewController : UITableViewController
 
-@property(nonatomic,strong)CategoryListModel *listModel;
+@property(nonatomic,copy)NSString *urlStr;
+@property(nonatomic,strong)MyAFNetWorkingRequest *request;
+
 
 @end

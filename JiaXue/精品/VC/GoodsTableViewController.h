@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 xiang_jj  千锋. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseTableViewController.h"
 
-@interface GoodsTableViewController : UITableViewController
+@interface GoodsTableViewController : BaseTableViewController
 
 @end

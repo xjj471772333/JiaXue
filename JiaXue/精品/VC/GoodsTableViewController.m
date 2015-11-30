@@ -7,8 +7,17 @@
 //
 
 #import "GoodsTableViewController.h"
+#import "MyAFNetWorkingRequest.h"
+#import "BoFangViewController.h"
+#import "GoodHeaderView.h"
+#import "CategoryDetailModel.h"
+#import "GoodModelManager.h"
 
-@interface GoodsTableViewController ()
+@interface GoodsTableViewController ()<GoodHeaderViewDelegate>
+
+@property(nonatomic, strong)MyAFNetWorkingRequest *request;
+
+@property(nonatomic,strong)GoodHeaderView *headView;
 
 @end
 
@@ -17,7 +26,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor yellowColor];
+    //modele的courses属性
+    self.coureseStr = @"courses";
+    //modele的title属性
+    self.titleStr = @"title";
+    //modele的columnId属性
+    self.idStr = @"columnId";
+    
+    //头部视图
+    self.headView = [[GoodHeaderView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, 120)];
+    self.headView.delegate = self;
+    self.tableView.tableHeaderView = self.headView;
+    
+    //请求数据
+    [self requestData];
+    
+}
+
+-(void)requestData{
+
+    self.request = [[MyAFNetWorkingRequest alloc] initWithRequest:@"http://course.jaxus.cn/api/boutique?channel=appstore&platform=2&version=2" andBlock:^(NSData *requestData) {
+        //头部视图展示的数据源
+        self.headView.bannerArray =  [GoodModelManager  arrayWithBannerModel:requestData];
+        //数据源
+        self.dataArray  =  [GoodModelManager arrayWithGoodsSextionModel:requestData];
+        
+        [self.tableView reloadData];
+        
+
+    }];
+    
 
 }
 
@@ -26,88 +64,72 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+-(void)pushBoFangViewController:(id)model{
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    //播放页面
+    BoFangViewController *bf = [[BoFangViewController alloc] init];
     
-    // Configure the cell...
+    CategoryDetailModel *detailModel = [[CategoryDetailModel alloc] init];
+
     
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
+    if ([model isKindOfClass:[GoodsModel class]]) {
+        GoodsModel *goodsModel = (GoodsModel *)model;
+        
+        detailModel.myID = goodsModel._id;
+        detailModel.iconUrl = goodsModel.iconUrl;
+    }
     
-    // Pass the selected object to the new view controller.
+    if ([model isKindOfClass:[BannersModel class]]) {
+        BannersModel *banaModel = (BannersModel *)model;
+     
+        detailModel.myID = banaModel.courseId;
+        detailModel.iconUrl = banaModel.imageUrl;
+    }
     
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-}
-*/
 
-/*
-#pragma mark - Navigation
+    bf.detailModel = detailModel;
+    [self.navigationController pushViewController:bf animated:YES];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
-*/
+
+
+//每一行被点击 进入播放页面
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    GoodsSectionModel *secModel = self.dataArray[indexPath.section];
+    GoodsModel *goodsModel  = secModel.courses[indexPath.row];
+    
+    [self pushBoFangViewController:goodsModel];
+
+}
+
+
+#pragma mark ---GoodHeaderViewDelegate
+//点击广告栏上的图片跳转到对应的播放页面
+-(void)didSelectedImageView:(BannersModel *)model
+{
+
+    [self pushBoFangViewController:model];
+
+}
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
