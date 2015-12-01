@@ -92,7 +92,6 @@
 //创建三大主页面
 -(void)creatUIView{
     
-    
     for (int i = 0; i<self.myViewControllers.count; i++) {
         UIViewController *obj = self.myViewControllers[i];
         obj.view.frame = CGRectMake(i*self.myScrollView.frame.size.width, 0, self.myScrollView.frame.size.width, self.myScrollView.frame.size.height);
@@ -101,7 +100,6 @@
         
     }
     
-
     self.myScrollView.contentSize = CGSizeMake(self.myScrollView.frame.size.width*self.myViewControllers.count, 0);
     self.myScrollView.pagingEnabled = YES;
 }

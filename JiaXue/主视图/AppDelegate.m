@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MyCollectList.h"
 
 @interface AppDelegate ()
 
@@ -38,8 +39,34 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
+
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    MyCollectList *list = [MyCollectList shareMyCollecList];
+    NSMutableArray *mArr = [NSMutableArray array];
+    for (CategoryDetailModel *model in list.collecList) {
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        [dict setObject:model.myID forKey:@"myID"];
+        [dict setObject:model.bgUrl forKey:@"bgUrl"];
+        [dict setObject:model.enrollNum forKey:@"enrollNum"];
+        [dict setObject:model.iconUrl forKey:@"iconUrl"];
+        [dict setObject:model.marks forKey:@"marks"];
+        [dict setObject:model.price forKey:@"price"];
+        [dict setObject:model.providerName forKey:@"providerName"];
+        [dict setObject:model.rate forKey:@"rate"];
+        [dict setObject:model.title forKey:@"title"];
+        [mArr addObject:dict];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setObject:mArr forKey:@"收藏列表"];
 }
 
 @end
+
+
+
+
+
+
+
+

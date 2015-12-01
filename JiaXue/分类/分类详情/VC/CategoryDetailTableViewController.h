@@ -12,8 +12,8 @@
 
 @interface CategoryDetailTableViewController : UITableViewController
 
-@property(nonatomic,copy)NSString *urlStr;
-@property(nonatomic,strong)MyAFNetWorkingRequest *request;
 
+@property(nonatomic,strong)NSMutableArray *dataArray;
 
+-(void)loadRequestDataWithUrlStr:(NSString *)urlStr;
 @end

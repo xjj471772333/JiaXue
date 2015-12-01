@@ -23,7 +23,6 @@
 		C43BB3BC1C0445B500FC84BF /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C43BB37B1C0445B500FC84BF /* AFURLRequestSerialization.m */; };
 		C43BB3BD1C0445B500FC84BF /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C43BB37D1C0445B500FC84BF /* AFURLResponseSerialization.m */; };
 		C43BB3BE1C0445B500FC84BF /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C43BB37F1C0445B500FC84BF /* AFURLSessionManager.m */; };
-		C43BB3BF1C0445B500FC84BF /* MusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C43BB3811C0445B500FC84BF /* MusicModel.m */; };
 		C43BB3C01C0445B500FC84BF /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C43BB3841C0445B500FC84BF /* AFNetworkActivityIndicatorManager.m */; };
 		C43BB3C11C0445B500FC84BF /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = C43BB3861C0445B500FC84BF /* UIActivityIndicatorView+AFNetworking.m */; };
 		C43BB3C21C0445B500FC84BF /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = C43BB3881C0445B500FC84BF /* UIAlertView+AFNetworking.m */; };
@@ -97,12 +96,19 @@
 		C43E6E141C0414CF004EDE82 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C43E6E111C0414CF004EDE82 /* RootViewController.m */; };
 		C43E6E371C0417F8004EDE82 /* GoodsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C43E6E351C0417F8004EDE82 /* GoodsTableViewController.m */; };
 		C43E6E3C1C04181F004EDE82 /* ListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C43E6E3A1C04181F004EDE82 /* ListTableViewController.m */; };
-		C48978C51C0701E300FE0145 /* MyDownloadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C48978C41C0701E300FE0145 /* MyDownloadTableViewController.m */; };
-		C48978C91C07EF6400FE0145 /* DownloadList.m in Sources */ = {isa = PBXBuildFile; fileRef = C48978C81C07EF6400FE0145 /* DownloadList.m */; };
+		C462600E1C0D461C00C2C550 /* MySettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4625FEC1C0D461C00C2C550 /* MySettingTableViewController.m */; };
+		C462600F1C0D461C00C2C550 /* DownloadList.m in Sources */ = {isa = PBXBuildFile; fileRef = C4625FF01C0D461C00C2C550 /* DownloadList.m */; };
+		C46260101C0D461C00C2C550 /* MyCollectList.m in Sources */ = {isa = PBXBuildFile; fileRef = C4625FF21C0D461C00C2C550 /* MyCollectList.m */; };
+		C46260111C0D461C00C2C550 /* MyCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4625FF71C0D461C00C2C550 /* MyCollectViewController.m */; };
+		C46260121C0D461C00C2C550 /* MyDownloadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C46260011C0D461C00C2C550 /* MyDownloadTableViewController.m */; };
+		C46260131C0D461C00C2C550 /* MyDownloadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C46260041C0D461C00C2C550 /* MyDownloadTableViewCell.m */; };
+		C46260141C0D461C00C2C550 /* MyDownloadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C46260051C0D461C00C2C550 /* MyDownloadTableViewCell.xib */; };
+		C46260181C0D464A00C2C550 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C46260161C0D464A00C2C550 /* LoginViewController.m */; };
+		C46260191C0D464A00C2C550 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C46260171C0D464A00C2C550 /* LoginViewController.xib */; };
+		C462601D1C0D60E600C2C550 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C462601B1C0D60E600C2C550 /* RegisterViewController.m */; };
+		C462601E1C0D60E600C2C550 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C462601C1C0D60E600C2C550 /* RegisterViewController.xib */; };
 		C48978CC1C07F32800FE0145 /* MyAFNetworkingDownloadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = C48978CB1C07F32800FE0145 /* MyAFNetworkingDownloadFile.m */; };
 		C48978CF1C07F8F800FE0145 /* MySessionDownloadStopAndResume.m in Sources */ = {isa = PBXBuildFile; fileRef = C48978CE1C07F8F800FE0145 /* MySessionDownloadStopAndResume.m */; };
-		C48978D41C07FCCD00FE0145 /* MyDownloadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C48978D21C07FCCD00FE0145 /* MyDownloadTableViewCell.m */; };
-		C48978D51C07FCCD00FE0145 /* MyDownloadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48978D31C07FCCD00FE0145 /* MyDownloadTableViewCell.xib */; };
 		C48978E11C0838A300FE0145 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C48978D81C0838A300FE0145 /* FMDatabase.m */; };
 		C48978E21C0838A300FE0145 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C48978DA1C0838A300FE0145 /* FMDatabaseAdditions.m */; };
 		C48978E31C0838A300FE0145 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = C48978DC1C0838A300FE0145 /* FMDatabasePool.m */; };
@@ -110,7 +116,6 @@
 		C48978E51C0838A300FE0145 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C48978E01C0838A300FE0145 /* FMResultSet.m */; };
 		C48978E71C0839E400FE0145 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C48978E61C0839E400FE0145 /* libsqlite3.dylib */; };
 		C48978EA1C083A2D00FE0145 /* XJFMDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C48978E91C083A2D00FE0145 /* XJFMDBManager.m */; };
-		C4FF676A1C06B88600234886 /* MySettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FF67691C06B88600234886 /* MySettingTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,8 +162,6 @@
 		C43BB37D1C0445B500FC84BF /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		C43BB37E1C0445B500FC84BF /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		C43BB37F1C0445B500FC84BF /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		C43BB3801C0445B500FC84BF /* MusicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicModel.h; sourceTree = "<group>"; };
-		C43BB3811C0445B500FC84BF /* MusicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicModel.m; sourceTree = "<group>"; };
 		C43BB3831C0445B500FC84BF /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
 		C43BB3841C0445B500FC84BF /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
 		C43BB3851C0445B500FC84BF /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
@@ -288,17 +291,29 @@
 		C43E6E351C0417F8004EDE82 /* GoodsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsTableViewController.m; sourceTree = "<group>"; };
 		C43E6E391C04181F004EDE82 /* ListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableViewController.h; sourceTree = "<group>"; };
 		C43E6E3A1C04181F004EDE82 /* ListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableViewController.m; sourceTree = "<group>"; };
-		C48978C31C0701E300FE0145 /* MyDownloadTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDownloadTableViewController.h; sourceTree = "<group>"; };
-		C48978C41C0701E300FE0145 /* MyDownloadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDownloadTableViewController.m; sourceTree = "<group>"; };
-		C48978C71C07EF6400FE0145 /* DownloadList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadList.h; sourceTree = "<group>"; };
-		C48978C81C07EF6400FE0145 /* DownloadList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadList.m; sourceTree = "<group>"; };
+		C4625FEB1C0D461C00C2C550 /* MySettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingTableViewController.h; sourceTree = "<group>"; };
+		C4625FEC1C0D461C00C2C550 /* MySettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingTableViewController.m; sourceTree = "<group>"; };
+		C4625FEF1C0D461C00C2C550 /* DownloadList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadList.h; sourceTree = "<group>"; };
+		C4625FF01C0D461C00C2C550 /* DownloadList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadList.m; sourceTree = "<group>"; };
+		C4625FF11C0D461C00C2C550 /* MyCollectList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectList.h; sourceTree = "<group>"; };
+		C4625FF21C0D461C00C2C550 /* MyCollectList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectList.m; sourceTree = "<group>"; };
+		C4625FF61C0D461C00C2C550 /* MyCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectViewController.h; sourceTree = "<group>"; };
+		C4625FF71C0D461C00C2C550 /* MyCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectViewController.m; sourceTree = "<group>"; };
+		C46260001C0D461C00C2C550 /* MyDownloadTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDownloadTableViewController.h; sourceTree = "<group>"; };
+		C46260011C0D461C00C2C550 /* MyDownloadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDownloadTableViewController.m; sourceTree = "<group>"; };
+		C46260031C0D461C00C2C550 /* MyDownloadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDownloadTableViewCell.h; sourceTree = "<group>"; };
+		C46260041C0D461C00C2C550 /* MyDownloadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDownloadTableViewCell.m; sourceTree = "<group>"; };
+		C46260051C0D461C00C2C550 /* MyDownloadTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyDownloadTableViewCell.xib; sourceTree = "<group>"; };
+		C46260151C0D464A00C2C550 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		C46260161C0D464A00C2C550 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		C46260171C0D464A00C2C550 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		C462601A1C0D60E600C2C550 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		C462601B1C0D60E600C2C550 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		C462601C1C0D60E600C2C550 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		C48978CA1C07F32800FE0145 /* MyAFNetworkingDownloadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyAFNetworkingDownloadFile.h; path = "../第三方库/MyAFNetworkingDownloadFile.h"; sourceTree = "<group>"; };
 		C48978CB1C07F32800FE0145 /* MyAFNetworkingDownloadFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyAFNetworkingDownloadFile.m; path = "../第三方库/MyAFNetworkingDownloadFile.m"; sourceTree = "<group>"; };
 		C48978CD1C07F8F800FE0145 /* MySessionDownloadStopAndResume.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySessionDownloadStopAndResume.h; path = "../第三方库/MySessionDownloadStopAndResume.h"; sourceTree = "<group>"; };
 		C48978CE1C07F8F800FE0145 /* MySessionDownloadStopAndResume.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySessionDownloadStopAndResume.m; path = "../第三方库/MySessionDownloadStopAndResume.m"; sourceTree = "<group>"; };
-		C48978D11C07FCCD00FE0145 /* MyDownloadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDownloadTableViewCell.h; sourceTree = "<group>"; };
-		C48978D21C07FCCD00FE0145 /* MyDownloadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDownloadTableViewCell.m; sourceTree = "<group>"; };
-		C48978D31C07FCCD00FE0145 /* MyDownloadTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyDownloadTableViewCell.xib; sourceTree = "<group>"; };
 		C48978D71C0838A300FE0145 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		C48978D81C0838A300FE0145 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		C48978D91C0838A300FE0145 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -312,8 +327,6 @@
 		C48978E61C0839E400FE0145 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		C48978E81C083A2D00FE0145 /* XJFMDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJFMDBManager.h; sourceTree = "<group>"; };
 		C48978E91C083A2D00FE0145 /* XJFMDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJFMDBManager.m; sourceTree = "<group>"; };
-		C4FF67681C06B88600234886 /* MySettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingTableViewController.h; sourceTree = "<group>"; };
-		C4FF67691C06B88600234886 /* MySettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -350,8 +363,6 @@
 			isa = PBXGroup;
 			children = (
 				C43BB36C1C0445B500FC84BF /* AFNetworking */,
-				C43BB3801C0445B500FC84BF /* MusicModel.h */,
-				C43BB3811C0445B500FC84BF /* MusicModel.m */,
 				C43BB3821C0445B500FC84BF /* UIKit+AFNetworking */,
 			);
 			path = "AFNetworking 2.5.0";
@@ -635,7 +646,7 @@
 		C43E6DC01C040537004EDE82 /* JiaXue */ = {
 			isa = PBXGroup;
 			children = (
-				C4FF67641C06B84A00234886 /* 我的 */,
+				C4625FE81C0D461C00C2C550 /* 我的 */,
 				C43BB4131C05C18A00FC84BF /* 分类 */,
 				C43E6E181C041564004EDE82 /* 排行 */,
 				C43E6E1C1C041564004EDE82 /* 精品 */,
@@ -789,21 +800,220 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		C48978C61C07EF4800FE0145 /* 单例 */ = {
+		C4625FE81C0D461C00C2C550 /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
-				C48978C71C07EF6400FE0145 /* DownloadList.h */,
-				C48978C81C07EF6400FE0145 /* DownloadList.m */,
+				C4625FE91C0D461C00C2C550 /* Model */,
+				C4625FEA1C0D461C00C2C550 /* VC */,
+				C4625FED1C0D461C00C2C550 /* View */,
+				C4625FEE1C0D461C00C2C550 /* 单例 */,
+				C4625FF31C0D461C00C2C550 /* 我的收藏 */,
+				C4625FF91C0D461C00C2C550 /* 我的登录和注册 */,
+				C4625FFD1C0D461C00C2C550 /* 我的离线下载 */,
+				C46260061C0D461C00C2C550 /* 播放记录 */,
+				C462600A1C0D461C00C2C550 /* 设置 */,
+			);
+			path = "我的";
+			sourceTree = "<group>";
+		};
+		C4625FE91C0D461C00C2C550 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C4625FEA1C0D461C00C2C550 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				C4625FEB1C0D461C00C2C550 /* MySettingTableViewController.h */,
+				C4625FEC1C0D461C00C2C550 /* MySettingTableViewController.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		C4625FED1C0D461C00C2C550 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C4625FEE1C0D461C00C2C550 /* 单例 */ = {
+			isa = PBXGroup;
+			children = (
+				C4625FEF1C0D461C00C2C550 /* DownloadList.h */,
+				C4625FF01C0D461C00C2C550 /* DownloadList.m */,
+				C4625FF11C0D461C00C2C550 /* MyCollectList.h */,
+				C4625FF21C0D461C00C2C550 /* MyCollectList.m */,
 			);
 			path = "单例";
 			sourceTree = "<group>";
 		};
-		C48978D01C07FCB300FE0145 /* View */ = {
+		C4625FF31C0D461C00C2C550 /* 我的收藏 */ = {
 			isa = PBXGroup;
 			children = (
-				C48978D11C07FCCD00FE0145 /* MyDownloadTableViewCell.h */,
-				C48978D21C07FCCD00FE0145 /* MyDownloadTableViewCell.m */,
-				C48978D31C07FCCD00FE0145 /* MyDownloadTableViewCell.xib */,
+				C4625FF41C0D461C00C2C550 /* Model */,
+				C4625FF51C0D461C00C2C550 /* VC */,
+				C4625FF81C0D461C00C2C550 /* View */,
+			);
+			path = "我的收藏";
+			sourceTree = "<group>";
+		};
+		C4625FF41C0D461C00C2C550 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C4625FF51C0D461C00C2C550 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				C4625FF61C0D461C00C2C550 /* MyCollectViewController.h */,
+				C4625FF71C0D461C00C2C550 /* MyCollectViewController.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		C4625FF81C0D461C00C2C550 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C4625FF91C0D461C00C2C550 /* 我的登录和注册 */ = {
+			isa = PBXGroup;
+			children = (
+				C4625FFA1C0D461C00C2C550 /* Model */,
+				C4625FFB1C0D461C00C2C550 /* VC */,
+				C4625FFC1C0D461C00C2C550 /* View */,
+			);
+			path = "我的登录和注册";
+			sourceTree = "<group>";
+		};
+		C4625FFA1C0D461C00C2C550 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C4625FFB1C0D461C00C2C550 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				C46260151C0D464A00C2C550 /* LoginViewController.h */,
+				C46260161C0D464A00C2C550 /* LoginViewController.m */,
+				C46260171C0D464A00C2C550 /* LoginViewController.xib */,
+				C462601A1C0D60E600C2C550 /* RegisterViewController.h */,
+				C462601B1C0D60E600C2C550 /* RegisterViewController.m */,
+				C462601C1C0D60E600C2C550 /* RegisterViewController.xib */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		C4625FFC1C0D461C00C2C550 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C4625FFD1C0D461C00C2C550 /* 我的离线下载 */ = {
+			isa = PBXGroup;
+			children = (
+				C4625FFE1C0D461C00C2C550 /* Model */,
+				C4625FFF1C0D461C00C2C550 /* VC */,
+				C46260021C0D461C00C2C550 /* View */,
+			);
+			path = "我的离线下载";
+			sourceTree = "<group>";
+		};
+		C4625FFE1C0D461C00C2C550 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C4625FFF1C0D461C00C2C550 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				C46260001C0D461C00C2C550 /* MyDownloadTableViewController.h */,
+				C46260011C0D461C00C2C550 /* MyDownloadTableViewController.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		C46260021C0D461C00C2C550 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C46260031C0D461C00C2C550 /* MyDownloadTableViewCell.h */,
+				C46260041C0D461C00C2C550 /* MyDownloadTableViewCell.m */,
+				C46260051C0D461C00C2C550 /* MyDownloadTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C46260061C0D461C00C2C550 /* 播放记录 */ = {
+			isa = PBXGroup;
+			children = (
+				C46260071C0D461C00C2C550 /* Model */,
+				C46260081C0D461C00C2C550 /* VC */,
+				C46260091C0D461C00C2C550 /* View */,
+			);
+			path = "播放记录";
+			sourceTree = "<group>";
+		};
+		C46260071C0D461C00C2C550 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C46260081C0D461C00C2C550 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		C46260091C0D461C00C2C550 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C462600A1C0D461C00C2C550 /* 设置 */ = {
+			isa = PBXGroup;
+			children = (
+				C462600B1C0D461C00C2C550 /* Model */,
+				C462600C1C0D461C00C2C550 /* VC */,
+				C462600D1C0D461C00C2C550 /* View */,
+			);
+			path = "设置";
+			sourceTree = "<group>";
+		};
+		C462600B1C0D461C00C2C550 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C462600C1C0D461C00C2C550 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		C462600D1C0D461C00C2C550 /* View */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -823,35 +1033,6 @@
 				C48978E01C0838A300FE0145 /* FMResultSet.m */,
 			);
 			path = FMDB;
-			sourceTree = "<group>";
-		};
-		C4FF67641C06B84A00234886 /* 我的 */ = {
-			isa = PBXGroup;
-			children = (
-				C48978C61C07EF4800FE0145 /* 单例 */,
-				C4FF67651C06B84A00234886 /* Model */,
-				C48978D01C07FCB300FE0145 /* View */,
-				C4FF67661C06B84A00234886 /* VC */,
-			);
-			path = "我的";
-			sourceTree = "<group>";
-		};
-		C4FF67651C06B84A00234886 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		C4FF67661C06B84A00234886 /* VC */ = {
-			isa = PBXGroup;
-			children = (
-				C4FF67681C06B88600234886 /* MySettingTableViewController.h */,
-				C4FF67691C06B88600234886 /* MySettingTableViewController.m */,
-				C48978C31C0701E300FE0145 /* MyDownloadTableViewController.h */,
-				C48978C41C0701E300FE0145 /* MyDownloadTableViewController.m */,
-			);
-			path = VC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -936,13 +1117,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C43E6E041C041435004EDE82 /* nav_back_hl.png in Resources */,
+				C462601E1C0D60E600C2C550 /* RegisterViewController.xib in Resources */,
 				C43BB45C1C05C8C400FC84BF /* BoFangTableViewCell.xib in Resources */,
 				C43E6E051C041435004EDE82 /* nav_bg@2x.png in Resources */,
 				C43E6E071C041435004EDE82 /* navi_shadow@2x.png in Resources */,
 				C43BB4581C05C8C400FC84BF /* BoFang1TableViewCell.xib in Resources */,
 				C43E6DFC1C041435004EDE82 /* bj.png in Resources */,
-				C48978D51C07FCCD00FE0145 /* MyDownloadTableViewCell.xib in Resources */,
+				C46260141C0D461C00C2C550 /* MyDownloadTableViewCell.xib in Resources */,
 				C43BB4441C05C18A00FC84BF /* CategoryCollectionViewCell.xib in Resources */,
+				C46260191C0D464A00C2C550 /* LoginViewController.xib in Resources */,
 				C43E6DCD1C040537004EDE82 /* Main.storyboard in Resources */,
 				C43E6DFE1C041435004EDE82 /* default_home_page@2x.jpg in Resources */,
 				C43E6E021C041435004EDE82 /* jingpin_1@3x.png in Resources */,
@@ -980,6 +1163,7 @@
 				C43BB3D71C0445B500FC84BF /* UIView+WebCacheOperation.m in Sources */,
 				C43E6E371C0417F8004EDE82 /* GoodsTableViewController.m in Sources */,
 				C43BB3D61C0445B500FC84BF /* UIImageView+WebCache.m in Sources */,
+				C46260131C0D461C00C2C550 /* MyDownloadTableViewCell.m in Sources */,
 				C43BB3C61C0445B500FC84BF /* UIRefreshControl+AFNetworking.m in Sources */,
 				C43BB3C31C0445B500FC84BF /* UIButton+AFNetworking.m in Sources */,
 				C43BB3C91C0445B500FC84BF /* NSData+ImageContentType.m in Sources */,
@@ -997,14 +1181,17 @@
 				C43BB4401C05C18A00FC84BF /* CategoryModel.m in Sources */,
 				C43BB3BD1C0445B500FC84BF /* AFURLResponseSerialization.m in Sources */,
 				C43BB4411C05C18A00FC84BF /* CategoryModelManager.m in Sources */,
+				C462601D1C0D60E600C2C550 /* RegisterViewController.m in Sources */,
 				C43BB3D51C0445B500FC84BF /* UIImageView+HighlightedWebCache.m in Sources */,
 				C43E6E3C1C04181F004EDE82 /* ListTableViewController.m in Sources */,
 				C42050D01C0BEC6B00409EA6 /* GoodsModel.m in Sources */,
+				C462600E1C0D461C00C2C550 /* MySettingTableViewController.m in Sources */,
 				C43BB44D1C05C18A00FC84BF /* BoFangModel.m in Sources */,
 				C43BB3BC1C0445B500FC84BF /* AFURLRequestSerialization.m in Sources */,
 				C43BB3CF1C0445B500FC84BF /* SDWebImageManager.m in Sources */,
 				C43BB4461C05C18A00FC84BF /* SectionHeaderView.m in Sources */,
 				C48978CF1C07F8F800FE0145 /* MySessionDownloadStopAndResume.m in Sources */,
+				C46260181C0D464A00C2C550 /* LoginViewController.m in Sources */,
 				C43BB4491C05C18A00FC84BF /* CategoryDetailViewController.m in Sources */,
 				C42050DF1C0C363D00409EA6 /* BaseTableViewController.m in Sources */,
 				C43BB4571C05C8C400FC84BF /* BoFang1TableViewCell.m in Sources */,
@@ -1019,6 +1206,8 @@
 				C42050D61C0BF13200409EA6 /* GoodsSectionModel.m in Sources */,
 				C43BB44C1C05C18A00FC84BF /* BoFangViewController.m in Sources */,
 				C42050CD1C0BEBEF00409EA6 /* BannersModel.m in Sources */,
+				C46260111C0D461C00C2C550 /* MyCollectViewController.m in Sources */,
+				C462600F1C0D461C00C2C550 /* DownloadList.m in Sources */,
 				C43BB3D21C0445B500FC84BF /* UIImage+GIF.m in Sources */,
 				C42050D91C0BFA1700409EA6 /* GoodHeaderView.m in Sources */,
 				C43BB3C01C0445B500FC84BF /* AFNetworkActivityIndicatorManager.m in Sources */,
@@ -1026,19 +1215,16 @@
 				C43BB3B61C0445B500FC84BF /* AFHTTPRequestOperation.m in Sources */,
 				C43BB3FE1C054B6900FC84BF /* XJViewController.m in Sources */,
 				C43BB3BE1C0445B500FC84BF /* AFURLSessionManager.m in Sources */,
-				C48978C91C07EF6400FE0145 /* DownloadList.m in Sources */,
 				C48978E41C0838A300FE0145 /* FMDatabaseQueue.m in Sources */,
+				C46260121C0D461C00C2C550 /* MyDownloadTableViewController.m in Sources */,
 				C43BB3D31C0445B500FC84BF /* UIImage+MultiFormat.m in Sources */,
 				C43BB3CE1C0445B500FC84BF /* SDWebImageDownloaderOperation.m in Sources */,
-				C43BB3BF1C0445B500FC84BF /* MusicModel.m in Sources */,
 				C43E6E141C0414CF004EDE82 /* RootViewController.m in Sources */,
 				C48978E31C0838A300FE0145 /* FMDatabasePool.m in Sources */,
-				C48978D41C07FCCD00FE0145 /* MyDownloadTableViewCell.m in Sources */,
 				C43BB3B81C0445B500FC84BF /* AFHTTPSessionManager.m in Sources */,
 				C43BB43F1C05C18A00FC84BF /* CategoryListModel.m in Sources */,
 				C43BB3CC1C0445B500FC84BF /* SDWebImageDecoder.m in Sources */,
 				C43BB3D41C0445B500FC84BF /* UIImage+WebP.m in Sources */,
-				C4FF676A1C06B88600234886 /* MySettingTableViewController.m in Sources */,
 				C42050D31C0BEECA00409EA6 /* GoodModelManager.m in Sources */,
 				C48978E21C0838A300FE0145 /* FMDatabaseAdditions.m in Sources */,
 				C43BB3CB1C0445B500FC84BF /* SDWebImageCompat.m in Sources */,
@@ -1051,9 +1237,9 @@
 				C43BB45B1C05C8C400FC84BF /* BoFangTableViewCell.m in Sources */,
 				C43BB3B91C0445B500FC84BF /* AFNetworkReachabilityManager.m in Sources */,
 				C43BB3B71C0445B500FC84BF /* AFHTTPRequestOperationManager.m in Sources */,
+				C46260101C0D461C00C2C550 /* MyCollectList.m in Sources */,
 				C43BB3CA1C0445B500FC84BF /* SDImageCache.m in Sources */,
 				C48978E11C0838A300FE0145 /* FMDatabase.m in Sources */,
-				C48978C51C0701E300FE0145 /* MyDownloadTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

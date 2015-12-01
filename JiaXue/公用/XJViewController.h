@@ -13,8 +13,6 @@
 
 -(id)initWithBtnArray:(NSArray *)btnArray  andWithVCS:(NSArray *)vcArray andCurrentPage:(NSInteger)page;
 
-
-
 //更新按钮和label的显示状态
 -(void)upDateUIButtonAndLabel:(NSInteger)tag;
 //更新滚动视图的偏移量

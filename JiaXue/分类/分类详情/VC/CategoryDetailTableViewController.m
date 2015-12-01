@@ -13,7 +13,9 @@
 
 @interface CategoryDetailTableViewController ()
 
-@property(nonatomic,strong)NSArray *dataArray;
+@property(nonatomic,strong)MyAFNetWorkingRequest *request;
+
+
 @end
 
 @implementation CategoryDetailTableViewController
@@ -23,14 +25,13 @@
     
     [self.tableView  registerNib:[UINib nibWithNibName:@"CategoryDetailTableViewCell" bundle:nil] forCellReuseIdentifier:@"CellID"];
     
-    [self loadRequestData];
 }
 
--(void)loadRequestData{
+-(void)loadRequestDataWithUrlStr:(NSString *)urlStr{
     
-    self.request = [[MyAFNetWorkingRequest alloc] initWithRequest:self.urlStr andBlock:^(NSData *requestData) {
+    self.request = [[MyAFNetWorkingRequest alloc] initWithRequest:urlStr andBlock:^(NSData *requestData) {
        
-       self.dataArray = [CategoryModelManager  arrayWithRequestDataForCategoryDetailModel:requestData];
+       self.dataArray = [[CategoryModelManager  arrayWithRequestDataForCategoryDetailModel:requestData] mutableCopy];
         
         [self.tableView reloadData];
 

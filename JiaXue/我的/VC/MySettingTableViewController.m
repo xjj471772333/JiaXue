@@ -7,8 +7,9 @@
 //
 
 #import "MySettingTableViewController.h"
+#import "LoginViewController.h"
 #import "MyDownloadTableViewController.h"
-
+#import "MyCollectViewController.h"
 @interface MySettingTableViewController ()
 
 @end
@@ -28,19 +29,23 @@
 {
 
     switch (indexPath.section) {
-        case 0:
-            
+        case 0:{
+            LoginViewController *loginVC = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+            [self.navigationController pushViewController:loginVC animated:YES];
             break;
-            
+            }
         case 1:{
             MyDownloadTableViewController *downloadVC = [[MyDownloadTableViewController alloc] initWithStyle:UITableViewStylePlain];
             [self.navigationController pushViewController:downloadVC animated:YES];
             
             break;
-        }
-        case 2:
+            }
+        case 2:{
+            MyCollectViewController *collectVC = [[MyCollectViewController alloc] init];
+            [self.navigationController pushViewController:collectVC animated:YES];
             
             break;
+            }
         case 3:
             
             break;

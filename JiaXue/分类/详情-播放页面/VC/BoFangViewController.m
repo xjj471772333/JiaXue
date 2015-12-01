@@ -17,6 +17,7 @@
 #import "BoFangModel.h"
 #import "WaiBoModel.h"
 #import "DownloadList.h"
+#import "MyCollectList.h"
 #import "MySessionDownloadStopAndResume.h"
 #import "XJFMDBManager.h"
 
@@ -40,6 +41,7 @@
 }
 
 @property(nonatomic, strong)MyAFNetWorkingRequest *request;
+
 @property(nonatomic, strong) WaiBoModel *waiBoModel;
 @property(nonatomic, strong) BoFangModel *boFangModel;
 
@@ -189,12 +191,36 @@
 }
 
 
+//动画效果提示
+-(void)playLabelAnimation:(NSString *)text{
+
+    [UIView animateWithDuration:1 animations:^{
+        self.playLabel.text = text;
+        self.playLabel.alpha =1;
+        
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:1 animations:^{
+            self.playLabel.alpha =0;
+        }];
+    }];
+
+}
+
 
 -(void)btnClick:(UIButton *)btn{
     //收藏按钮被点击
     if (btn.tag == 100) {
         
-        
+        MyCollectList *list = [MyCollectList shareMyCollecList];
+        for (CategoryDetailModel *deModel in list.collecList) {
+            if (deModel == self.detailModel) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"注意" message:@"已经被收藏" delegate:nil cancelButtonTitle:@"返回" otherButtonTitles:nil];
+                [alert show];
+                return;
+            }
+        }
+        [list.collecList  addObject:self.detailModel];
+        [self playLabelAnimation:@"已添加到缓存列表"];
         
     }else{
         //先判断是否有下载资源，如果没有下载资源
@@ -216,15 +242,9 @@
             UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
             UIAlertAction *sureAction  = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             
-            [UIView animateWithDuration:1 animations:^{
-                self.playLabel.text =@"已添加至离线缓存表";
-                self.playLabel.alpha =1;
-
-            } completion:^(BOOL finished) {
-                [UIView animateWithDuration:1 animations:^{
-                    self.playLabel.alpha =0;
-                }];
-            }];
+     
+            [self playLabelAnimation:@"已添加至离线缓存表"];
+                
             DownloadList *downloadList = [DownloadList shareDownloadList];
             //把当前视频加入到下载列表
             [downloadList.downloadArray addObject:self.waiBoModel];
@@ -276,11 +296,7 @@
 
     if (self.waiBoModel.singleVideoId==nil&&self.waiBoModel.videoId == nil) {
         
-        [UIView animateWithDuration:2 animations:^{
-            
-            self.playLabel.text =@"暂无视频数据";
-            self.playLabel.alpha =1;
-        }];
+        [self playLabelAnimation:@"暂无视频数据"];
     }
 
     else{

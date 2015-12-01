@@ -96,7 +96,8 @@
     
     //这里跟分类详情也类似，所以直接拿来使用
     CategoryDetailTableViewController *cvc = [[CategoryDetailTableViewController alloc] init];
-    cvc.urlStr = [NSString stringWithFormat:URL_GOODS_RECOMMEND,@"rank",[secModel performSelector:NSSelectorFromString(self.idStr)]];
+
+    [cvc loadRequestDataWithUrlStr:[NSString stringWithFormat:URL_GOODS_RECOMMEND,@"rank",[secModel performSelector:NSSelectorFromString(self.idStr)]]];
     
     [self.navigationController pushViewController:cvc animated:YES];
     
