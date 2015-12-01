@@ -37,8 +37,6 @@
     [self.view addSubview:setVC.view];
     [self addChildViewController:setVC];
 
-    XJViewController *xjj = [[XJViewController alloc] init];
-    xjj.btnArray = @[@"分类",@"精品",@"排行"];
     
     NSArray *array = @[@"CategoryTableViewController",@"GoodsTableViewController",@"ListTableViewController"];
     NSMutableArray *vcs = [NSMutableArray array];
@@ -47,8 +45,9 @@
         UIViewController *obj = [[class  alloc] init];
         [vcs addObject:obj];
     }
-    xjj.myViewControllers = [vcs copy];
-    xjj.number = 3;
+    
+    XJViewController *xjj = [[XJViewController alloc] initWithBtnArray: @[@"分类",@"精品",@"排行"] andWithVCS:vcs andCurrentPage:3];
+
     xjj.view.frame = self.view.bounds;
     [self.view addSubview:xjj.view];
     [self addChildViewController:xjj];

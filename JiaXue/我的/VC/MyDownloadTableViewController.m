@@ -15,7 +15,7 @@
 
 @interface MyDownloadTableViewController ()<MySessionDownloadStopAndResumeDelegate>
 
-@property(nonatomic,strong)NSMutableArray *downloadArray;//存储视频资源和请求对象
+@property(nonatomic,strong)NSMutableArray *downloadArray;//存储本地视频资源和正在请求的视频对象
 @property(nonatomic,strong)NSMutableArray *dataArray;//存储显示的model
 
 @end
@@ -86,7 +86,12 @@
 
 -(void)dealloc
 {
-    
+    for (id obj in self.downloadArray) {
+        if ([obj isKindOfClass:[MySessionDownloadStopAndResume  class]]) {
+            MySessionDownloadStopAndResume *session = (MySessionDownloadStopAndResume *)obj;
+            session.delegate = nil;
+        }
+    }
 }
 
 #pragma mark - MySessionDownloadStopAndResumeDelegate

@@ -96,7 +96,6 @@
 #pragma mark -loadData
 
 - (void)loadData{
-    NSLog(@"%@",[NSString stringWithFormat:URL_CATEGORY_DETAIL_BOFANG,self.detailModel.myID]);
     
     __weak  BoFangViewController *mySelf = self;
     self.request = [[MyAFNetWorkingRequest  alloc] initWithRequest:[NSString stringWithFormat:URL_CATEGORY_DETAIL_BOFANG,self.detailModel.myID] andBlock:^(NSData *requestData) {

@@ -10,32 +10,59 @@
 
 @interface XJViewController ()<UIScrollViewDelegate>
 
-@property (strong,nonatomic)UIScrollView *myScrollView;
+@property(nonatomic,strong)NSArray *btnArray;//所有要显示的按钮
+@property(nonatomic,strong)NSArray *myViewControllers;//所有要显示的视图
+@property(nonatomic,assign)NSInteger number;//页面显示几个UIButton
+
+@property (strong,nonatomic)UIScrollView *myScrollView;//当前主页面的滚动视图
 @property (strong,nonatomic)UILabel *redLabel;
-@property (strong,nonatomic)UIScrollView *btnScrollView;
+@property (strong,nonatomic)UIScrollView *btnScrollView;//btn按钮后的滚动视图
 
 @end
 
 @implementation XJViewController
 
+-(id)initWithBtnArray:(NSArray *)btnArray  andWithVCS:(NSArray *)vcArray andCurrentPage:(NSInteger)page{
+    self = [super init];
+    if (self) {
+        self.btnArray = btnArray;
+        self.myViewControllers = vcArray;
+        self.number = page;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     [self creatNavButton];
-    [self creatScorllView];
     [self creatUIView];
 
+}
+-(UIScrollView *)btnScrollView
+{
+    if (!_btnScrollView) {
+        _btnScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, 45)];
+        _btnScrollView.showsHorizontalScrollIndicator = NO;
+        _btnScrollView.showsVerticalScrollIndicator = NO;
+        _btnScrollView.backgroundColor = [UIColor whiteColor];
+        [self.view addSubview:self.btnScrollView];
+    }
+    return _btnScrollView;
+}
+
+-(UIScrollView *)myScrollView
+{
+    if (!_myScrollView) {
+        _myScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 44, screen_Width, screen_Height-44-64)];
+        _myScrollView.delegate = self;
+        [self.view addSubview:_myScrollView];
+    }
+    return _myScrollView;
 }
 
 //创建主页的三个导航按钮，分类，精品，排行
 -(void)creatNavButton{
-    
-    self.btnScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, 45)];
-    self.btnScrollView.showsHorizontalScrollIndicator = NO;
-    self.btnScrollView.showsVerticalScrollIndicator = NO;
-    self.btnScrollView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.btnScrollView];
-    
     
     //循环创建
     for(int i = 0;i<self.btnArray.count;i++){
@@ -61,16 +88,6 @@
     [self.btnScrollView addSubview:self.redLabel];
     
 }
-
--(void)creatScorllView{
-    
-    self.myScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 44, screen_Width, screen_Height-44-64)];
-    self.myScrollView.delegate = self;
-    [self.view addSubview:self.myScrollView];
-    
-    
-}
-
 
 //创建三大主页面
 -(void)creatUIView{
@@ -127,9 +144,6 @@
             }
         }
     }
-    
-//    self.btnScrollView.contentOffset = CGPointMake((((tag+1)*btn.frame.size.width/screen_Width)*btn.frame.size.width), 0);
-//    NSLog(@"%f ",self.btnScrollView.contentSize.width);
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -157,8 +171,6 @@
     
 
 }
-
-
 
 
 @end

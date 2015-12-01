@@ -20,7 +20,6 @@
     [super viewDidLoad];
     
     
-    XJViewController *xjj = [[XJViewController alloc] init];
     NSMutableArray *mArr = [NSMutableArray array];
     NSMutableArray *vcs  = [NSMutableArray array];
     for (int i = 0;i<self.model.subcategories.count;i++) {
@@ -31,9 +30,10 @@
         [vcs addObject:cvc];
         [mArr addObject:listModel.name];
     }
-    xjj.btnArray =  [mArr copy];
-    xjj.myViewControllers = [vcs copy];
-    xjj.number = 4;
+
+    
+    XJViewController *xjj = [[XJViewController alloc] initWithBtnArray:mArr andWithVCS:vcs andCurrentPage:4];
+
     xjj.view.frame = self.view.bounds;
     [self.view addSubview:xjj.view];
     [self addChildViewController:xjj];

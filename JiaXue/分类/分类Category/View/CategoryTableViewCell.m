@@ -27,7 +27,6 @@
         
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         //单元格（每一项）的大小（宽高）
-        NSLog(@"%lf",screen_Width);
         layout.itemSize = CGSizeMake((screen_Width-(screen_Width*0.05*4))/4, 80);
         //最小格间距（每个单元格之间的最小间距）
         layout.minimumInteritemSpacing = screen_Width*0.05;
