@@ -72,21 +72,21 @@
 -(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location
 {
     //将临时文件保存到指定的目录中
-    NSString *descParth = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/Movie/%@.mp4",self.waibuModel.title];
+    NSString *descParth = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/Movie/%@.mp4",self.detailModel.title];
     NSLog(@"%@",descParth);
     [[NSFileManager defaultManager] moveItemAtPath:location.path toPath:descParth error:nil];
     
     //当下载成功后
     //创建数据库 把该视频所对应的相关信息存储起来
     XJFMDBManager *manager = [XJFMDBManager shareXJFMDBManager];
-    manager.model = self.waibuModel;
+    manager.model = self.detailModel;
     [manager createTable];
     [manager insertData];
     
     //每次下载成功以后，就把当前请求对象从单例的数组中移除
     DownloadList *list = [DownloadList shareDownloadList];
     [list.downloadfileRequest  removeObject:self];
-    [list.downloadArray  removeObject:self.waibuModel];
+    [list.downloadArray  removeObject:self.detailModel];
     
 }
 //下载过程中不断回调该方法

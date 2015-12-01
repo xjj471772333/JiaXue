@@ -7,7 +7,7 @@
 //
 
 #import "XJFMDBManager.h"
-#import "WaiBoModel.h"
+#import "CategoryDetailModel.h"
 
 
 @implementation XJFMDBManager
@@ -54,7 +54,7 @@
 //创建表格
 -(void)createTable{
 
-    NSString *createTab = @"CREATE TABLE IF NOT EXISTS MovieInfo(title varchar(32),videoView varchar(32),overview varchar(32),goal varchar(32),bgUrl varchar(32))";
+    NSString *createTab = @"CREATE TABLE IF NOT EXISTS MovieInfo(title varchar(32),bgUrl varchar(32))";
     
     //注意:增,删,创,改 都是通过executeUpdate:这个方法实现
     //查是通过executeQuery:方法实现
@@ -70,16 +70,16 @@
 //增加数据
 -(void)insertData{
     
-    WaiBoModel *waiboModel = (WaiBoModel *)self.model;
+    CategoryDetailModel *detailModel = (CategoryDetailModel *)self.model;
     
     
     //?代表要插入的字段的值
     //注意:在结构化查询语句中不能出现中文
     //?之间不能有空格等符号
-    NSString *insertSql = @"INSERT INTO MovieInfo(title,videoView,overview,goal,bgUrl) values(?,?,?,?,?)";
+    NSString *insertSql = @"INSERT INTO MovieInfo(title,bgUrl) values(?,?)";
     
     //注意:在插入数据时,参数都要先暂时转化成字符串
-    BOOL isSuc = [_database executeUpdate:insertSql,waiboModel.title,waiboModel.videoView,waiboModel.overview,waiboModel.goal,waiboModel.bgUrl];
+    BOOL isSuc = [_database executeUpdate:insertSql,detailModel.title,detailModel.bgUrl];
     
     
     if (isSuc) {
@@ -101,14 +101,11 @@
     //next取当前行数据,取到执行,取不到结束循环
     while ([set next]) {
         
-        WaiBoModel *model = [[WaiBoModel alloc] init];
-        model.title = [set stringForColumnIndex:0];
-        model.videoView = [set stringForColumnIndex:1];
-        model.overview  = [set stringForColumnIndex:2];
-        model.goal = [set stringForColumnIndex:3];
-        model.bgUrl  = [set stringForColumnIndex:4];
+        CategoryDetailModel *detailModel = [[CategoryDetailModel alloc] init];
+        detailModel.title = [set stringForColumnIndex:0];
+        detailModel.bgUrl  = [set stringForColumnIndex:1];
 
-        [_datas addObject:model];
+        [_datas addObject:detailModel];
     }
     
     return _datas;

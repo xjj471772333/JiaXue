@@ -65,7 +65,7 @@
     CategoryDetailModel *detailModel = [[CategoryDetailModel alloc] init];
     detailModel.myID = goodsModel._id;
     detailModel.iconUrl = goodsModel.iconUrl;
-    
+    detailModel.title = goodsModel.title;
     bf.detailModel = detailModel;
     
     [self.navigationController pushViewController:bf animated:YES];

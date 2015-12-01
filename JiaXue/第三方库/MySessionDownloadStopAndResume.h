@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "WaiBoModel.h"
+#import "CategoryDetailModel.h"
 
 @class MySessionDownloadStopAndResume;
 
@@ -19,7 +19,7 @@
 @interface MySessionDownloadStopAndResume : NSObject
 
 @property(nonatomic,assign)id<MySessionDownloadStopAndResumeDelegate> delegate;
-@property(nonatomic,strong)WaiBoModel *waibuModel;
+@property(nonatomic,strong)CategoryDetailModel *detailModel;
 @property(nonatomic,assign)double  progress;//当前进度
 @property(nonatomic,assign)BOOL    isStop;//为了判断btn是都该显示“暂停”还是“继续”
 -(id)initWithMySessionDownloadFile:(NSString *)urlStr;//开始下载

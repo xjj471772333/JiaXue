@@ -247,12 +247,12 @@
                 
             DownloadList *downloadList = [DownloadList shareDownloadList];
             //把当前视频加入到下载列表
-            [downloadList.downloadArray addObject:self.waiBoModel];
+            [downloadList.downloadArray addObject:self.detailModel];
             
             //通知下载类开始下载
             MySessionDownloadStopAndResume *downLoadFile = [[MySessionDownloadStopAndResume alloc] initWithMySessionDownloadFile:self.boFangModel.quality_20];
             
-            downLoadFile.waibuModel = self.waiBoModel;
+            downLoadFile.detailModel = self.detailModel;
             [downloadList.downloadfileRequest addObject:downLoadFile];
             
         }];
@@ -364,7 +364,7 @@
         if (!cell) {
             cell =[[[NSBundle mainBundle]loadNibNamed:@"BoFangTableViewCell" owner:self options:nil]lastObject];
         }
-        cell.label1.text =self.waiBoModel.title;
+        cell.label1.text =self.detailModel.title;
         cell.label2.text =[NSString stringWithFormat:@"%@次播放",self.waiBoModel.videoView];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
