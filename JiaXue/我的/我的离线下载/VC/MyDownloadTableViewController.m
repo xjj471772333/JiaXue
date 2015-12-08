@@ -45,6 +45,16 @@
     [self.tableView  registerNib:[UINib nibWithNibName:@"MyDownloadTableViewCell" bundle:nil] forCellReuseIdentifier:@"CelID"];
     
     [self loadData];
+    
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+}
+
+//当点击editButtonItem时候，默认调用该方法
+-(void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+    
+    self.tableView.editing = !self.tableView.editing;
 }
 
 -(void)loadData{
@@ -53,22 +63,22 @@
     
     //先查看数据可以是否有数据，如果有，表示已经下载了视频
     XJFMDBManager *fmdb = [XJFMDBManager shareXJFMDBManager];
+
+    if (list.downloadArray.count>0){
+        //先检查当前是否有正在下载的视频
+        [self.dataArray addObjectsFromArray:list.downloadArray];
+        [self.downloadArray addObjectsFromArray:list.downloadfileRequest];
+
+        
+    }
     if([[fmdb selectData] count]>0){
-        //如果数据库中存有数据，那么取出对应Model数据存入数组
+        //再查看数据库中是否存有数据，那么取出对应Model数据存入数组
         [self.dataArray addObjectsFromArray:[fmdb selectData]];
         [self.downloadArray addObjectsFromArray:[fmdb selectData]];
     }
-    if (list.downloadArray.count>0){
-        //如果当前有正在下载的视频
-        [self.dataArray addObjectsFromArray:list.downloadArray];
 
-    }
 
-    //如果有新请求中的视频
-    if (list.downloadfileRequest.count>0) {
-        [self.downloadArray addObjectsFromArray:list.downloadfileRequest];
-    }
-    
+
     for (id obj in self.downloadArray) {
         if ([obj isKindOfClass:[MySessionDownloadStopAndResume  class]]) {
             MySessionDownloadStopAndResume *session = (MySessionDownloadStopAndResume *)obj;
@@ -113,7 +123,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return self.downloadArray.count;
+    return self.dataArray.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -122,7 +132,7 @@
     MyDownloadTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CelID" forIndexPath:indexPath];
     
     if (self.dataArray.count>0) {
-        cell.waiboModel = self.dataArray[indexPath.row];
+        cell.detailModel = self.dataArray[indexPath.row];
     }
 
     id obj = self.downloadArray[indexPath.row];
@@ -144,13 +154,13 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WaiBoModel *model = self.dataArray[indexPath.row];
+    CategoryDetailModel *model = self.dataArray[indexPath.row];
  
     //只有下载了才能播放，不支持边下载边播放
     
     XJFMDBManager *fmdb = [XJFMDBManager shareXJFMDBManager];
     //从数据库中查找是否已经下载了该视频，如果下载了，拿到本地视频，开始播放，否则，什么都不干
-    for (WaiBoModel *fmModel in [fmdb selectData]) {
+    for (CategoryDetailModel *fmModel in [fmdb selectData]) {
         //这里通过视频的标题判断该视频是否已经下载到本地
         if ([fmModel.title isEqualToString:model.title]) {
             NSURL *url = [NSURL fileURLWithPath:[NSHomeDirectory() stringByAppendingFormat:@"/Documents/Movie/%@.mp4",model.title]];
@@ -163,9 +173,50 @@
     }
     
 }
+//删除已经下载的视频/正在下载中的视频
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    DownloadList *list = [DownloadList shareDownloadList];
+
+    //取出当前需要删除的视频对应的model
+    CategoryDetailModel  *model = self.dataArray[indexPath.row];
+    //从当前数据源中移除
+    [self.dataArray removeObject:model];
+    //如果存在当前下载列表
+    if (list.downloadArray.count>0) {
+        [list.downloadArray removeObject:model];
+    }
+    
+    //取出当前正在下载的视频对象或者已经下载过的视频信息
+    id obj2 = self.downloadArray[indexPath.row];
+    
+    //判断当前对象是正在下载的请求对象还是已经下载的视频
+    if ([obj2 isKindOfClass:[MySessionDownloadStopAndResume class]]) {
+        //从当前数据源中移除
+        [self.downloadArray removeObject:obj2];
+        //并从单例对象的下载列表中移除
+        [list.downloadfileRequest removeObject:obj2];
+    }else{
+        //如果删除的是已经下载的对象
+        [self.downloadArray removeObject:obj2];
+        //并从数据库移除对应的数据
+        [[XJFMDBManager shareXJFMDBManager] deleteData:model.title];
+        //从沙盒目录移除对应的视频资源
+        [[NSFileManager defaultManager] removeItemAtPath:[NSHomeDirectory() stringByAppendingFormat:@"/Documents/Movie/%@.mp4",model.title] error:nil];
+    }
+    
+
+    [self.tableView reloadData];
+
+    
+}
 
 
 @end
+
+
+
 
 
 

@@ -54,7 +54,7 @@
 //创建表格
 -(void)createTable{
 
-    NSString *createTab = @"CREATE TABLE IF NOT EXISTS MovieInfo(title varchar(32),bgUrl varchar(32))";
+    NSString *createTab = @"CREATE TABLE IF NOT EXISTS MovieInfo(title varchar(32),iconUrl varchar(32))";
     
     //注意:增,删,创,改 都是通过executeUpdate:这个方法实现
     //查是通过executeQuery:方法实现
@@ -76,10 +76,10 @@
     //?代表要插入的字段的值
     //注意:在结构化查询语句中不能出现中文
     //?之间不能有空格等符号
-    NSString *insertSql = @"INSERT INTO MovieInfo(title,bgUrl) values(?,?)";
+    NSString *insertSql = @"INSERT INTO MovieInfo(title,iconUrl) values(?,?)";
     
     //注意:在插入数据时,参数都要先暂时转化成字符串
-    BOOL isSuc = [_database executeUpdate:insertSql,detailModel.title,detailModel.bgUrl];
+    BOOL isSuc = [_database executeUpdate:insertSql,detailModel.title,detailModel.iconUrl];
     
     
     if (isSuc) {
@@ -88,6 +88,21 @@
         NSLog(@"插入失败");
     }
     
+}
+
+//删除数据
+-(void)deleteData:(NSString *)title
+{
+    NSString *deleteSql = @"DELETE FROM MovieInfo WHERE title = ?";
+    
+    BOOL isSuc = [_database executeUpdate:deleteSql,title];
+    
+    if (isSuc) {
+        NSLog(@"删除成功");
+    }else{
+        NSLog(@"删除失败");
+    }
+
 }
 
 //查
@@ -103,7 +118,7 @@
         
         CategoryDetailModel *detailModel = [[CategoryDetailModel alloc] init];
         detailModel.title = [set stringForColumnIndex:0];
-        detailModel.bgUrl  = [set stringForColumnIndex:1];
+        detailModel.iconUrl  = [set stringForColumnIndex:1];
 
         [_datas addObject:detailModel];
     }

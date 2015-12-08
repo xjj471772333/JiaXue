@@ -25,11 +25,11 @@
 
 @implementation MyDownloadTableViewCell
 
--(void)setWaiboModel:(WaiBoModel *)waiboModel
+-(void)setDetailModel:(CategoryDetailModel *)detailModel
 {
-    _waiboModel = waiboModel;
-    [self.iconImage sd_setImageWithURL:[NSURL URLWithString:_waiboModel.bgUrl]];
-    self.titleLabel.text = waiboModel.title;
+    _detailModel = detailModel;
+    [self.iconImage sd_setImageWithURL:[NSURL URLWithString:_detailModel.iconUrl]];
+    self.titleLabel.text = _detailModel.title;
     
 
 }

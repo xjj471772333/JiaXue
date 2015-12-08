@@ -35,19 +35,13 @@
 }
 
 -(void)loadRequestData{
-
-
+    
     self.request = [[MyAFNetWorkingRequest alloc] initWithRequest:URL_LIST andBlock:^(NSData *requestData) {
-        
-        
         self.dataArray = [ListModel arrayWithListModel:requestData];
-        
-
         [self.tableView reloadData];
         
     }];
-
-
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -69,8 +63,8 @@
     bf.detailModel = detailModel;
     
     [self.navigationController pushViewController:bf animated:YES];
-
-
+    
+    
 }
 
 

@@ -23,6 +23,10 @@
 -(void)createTable;
 //插入
 -(void)insertData;
+//删除
+-(void)deleteData:(NSString *)title;
 //查找
 -(NSArray *)selectData;
+
+
 @end

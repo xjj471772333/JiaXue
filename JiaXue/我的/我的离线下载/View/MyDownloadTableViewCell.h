@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WaiBoModel.h"
+#import "CategoryDetailModel.h"
 #import "MySessionDownloadStopAndResume.h"
 
 @interface MyDownloadTableViewCell : UITableViewCell
 
-@property(nonatomic,strong)WaiBoModel *waiboModel;
+@property(nonatomic,strong)CategoryDetailModel *detailModel;
 
 @property(nonatomic,strong)MySessionDownloadStopAndResume *session;
 @property(nonatomic,strong)id objc;
