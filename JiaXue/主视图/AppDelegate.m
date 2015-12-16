@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MyCollectList.h"
+#import "UMSocial.h"
 
 @interface AppDelegate ()
 
