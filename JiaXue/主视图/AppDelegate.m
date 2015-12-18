@@ -19,6 +19,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [UMSocialData setAppKey:@"5670fdffe0f55a1afb000083"];
+    
+    //    qq
+//    APP ID:1104948989
+//    APP KEY:FjuXiLlfsr56gXX3
+    
+    
+    
+//    App Key：
+//    1532256888
+//    
+//    App Secret：
+//    abcf2346fefa254533afc8df1f6245d8
+    
     return YES;
 }
 
