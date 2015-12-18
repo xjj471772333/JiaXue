@@ -1,0 +1,18 @@
+//
+//  XJPrefix.pch
+//  JiaXue
+//
+//  Created by Leven on 15/12/18.
+//  Copyright © 2015年 xiang_jj  千锋. All rights reserved.
+//
+
+#ifndef XJPrefix_pch
+#define XJPrefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* XJPrefix_pch */
+
+
+#define NET_STATUS_NOTIFICATION @"statusChange"
