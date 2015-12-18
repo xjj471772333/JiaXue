@@ -7,6 +7,7 @@
 //
 
 #import "BasicViewController.h"
+#import "ZCQRScanViewController.h"
 
 @interface BasicViewController ()
 
@@ -65,6 +66,9 @@
 
 - (void)rightItem:(UIBarButtonItem *)item{
   
+    ZCQRScanViewController *scan=[[ZCQRScanViewController alloc]init];
+    scan.view.backgroundColor=[UIColor whiteColor];
+    [self.navigationController pushViewController:scan animated:YES];
     
 }
 

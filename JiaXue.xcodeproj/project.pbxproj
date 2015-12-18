@@ -27,6 +27,7 @@
 		0D85D5731C21331D007D7AFA /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0D85D55A1C21331C007D7AFA /* TencentOpenApi_IOS_Bundle.bundle */; };
 		0D85D5741C21331D007D7AFA /* libSocialWechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D85D55D1C21331C007D7AFA /* libSocialWechat.a */; };
 		0D85D5751C21331D007D7AFA /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D85D55E1C21331C007D7AFA /* libWeChatSDK.a */; };
+		0D85D57E1C23A93B007D7AFA /* ZCQRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D85D57D1C23A93B007D7AFA /* ZCQRScanViewController.m */; };
 		C42050CD1C0BEBEF00409EA6 /* BannersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C42050CC1C0BEBEF00409EA6 /* BannersModel.m */; };
 		C42050D01C0BEC6B00409EA6 /* GoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C42050CF1C0BEC6B00409EA6 /* GoodsModel.m */; };
 		C42050D31C0BEECA00409EA6 /* GoodModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C42050D21C0BEECA00409EA6 /* GoodModelManager.m */; };
@@ -197,6 +198,8 @@
 		0D85D55F1C21331C007D7AFA /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialWechatHandler.h; sourceTree = "<group>"; };
 		0D85D5601C21331C007D7AFA /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		0D85D5611C21331C007D7AFA /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		0D85D57C1C23A93B007D7AFA /* ZCQRScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCQRScanViewController.h; sourceTree = "<group>"; };
+		0D85D57D1C23A93B007D7AFA /* ZCQRScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCQRScanViewController.m; sourceTree = "<group>"; };
 		C42050CB1C0BEBEF00409EA6 /* BannersModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannersModel.h; sourceTree = "<group>"; };
 		C42050CC1C0BEBEF00409EA6 /* BannersModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannersModel.m; sourceTree = "<group>"; };
 		C42050CE1C0BEC6B00409EA6 /* GoodsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsModel.h; sourceTree = "<group>"; };
@@ -668,6 +671,8 @@
 				C48978E91C083A2D00FE0145 /* XJFMDBManager.m */,
 				C42050DD1C0C363D00409EA6 /* BaseTableViewController.h */,
 				C42050DE1C0C363D00409EA6 /* BaseTableViewController.m */,
+				0D85D57C1C23A93B007D7AFA /* ZCQRScanViewController.h */,
+				0D85D57D1C23A93B007D7AFA /* ZCQRScanViewController.m */,
 			);
 			path = "公用";
 			sourceTree = "<group>";
@@ -1422,6 +1427,7 @@
 				C48978E51C0838A300FE0145 /* FMResultSet.m in Sources */,
 				C43BB3B61C0445B500FC84BF /* AFHTTPRequestOperation.m in Sources */,
 				C43BB3FE1C054B6900FC84BF /* XJViewController.m in Sources */,
+				0D85D57E1C23A93B007D7AFA /* ZCQRScanViewController.m in Sources */,
 				C43BB3BE1C0445B500FC84BF /* AFURLSessionManager.m in Sources */,
 				C48978E41C0838A300FE0145 /* FMDatabaseQueue.m in Sources */,
 				C46260121C0D461C00C2C550 /* MyDownloadTableViewController.m in Sources */,
